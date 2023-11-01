@@ -3,11 +3,11 @@
 ### הצגת כל הלקוחות
 'htttps://HotelProject.com/api/customers'
 ### הצגת לקוח מסוים
-'htttps://HotelProject.com/api/customers.{id}'
+'htttps://HotelProject.com/api/customers{id}'
 ### הוספת לקוח
 'htttps://HotelProject.com/api/customers'
 ### עדכון פקטי לקוח
-'htttps://HotelProject.com/api/customers.{id}'
+'htttps://HotelProject.com/api/customers{id}'
 ### מחיקת לקוח
 'htttps://HotelProject.com/api/customers.{id}'
 ## חדרים:
