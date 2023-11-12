@@ -9,39 +9,46 @@ namespace HotelProject.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private static List<Order> orderList = new List<Order>();
-        private static int orderNum=1;
+        DataContex contex;
+        public OrdersController(DataContex contex)
+        {
+            this.contex = contex;
+        }
 
         // GET: api/<OrdersController>
         [HttpGet]
         public IEnumerable<Order> Get()
         {
-            return orderList;
+            return contex.orderList;
         }
 
         // GET api/<OrdersController>/5
         [HttpGet("{id}")]
-        public Order Get(int id)
+        public ActionResult<Order> Get(int id)
         {
-            return orderList.Find(x=> x.OrderId==id);
+            Order o= contex.orderList.Find(x => x.OrderId == id);
+            if (o == null)
+                return NotFound();
+            return o;
         }
 
         // POST api/<OrdersController>
         [HttpPost]
         public void Post([FromBody] Order o)
         {
-            Order o1=new Order { OrderId=orderNum++,CustId=o.CustId,RoomId=o.RoomId,Start=o.Start,End=o.End,Payment=200};
-            orderList.Add(o1);
+            Room r = contex.roomList.Find(x => x.RoomId == o.RoomId);
+            Order o1 = new Order { OrderId = contex.orderNum++, CustId = o.CustId, RoomId = o.RoomId, Start = o.Start, numDays = o.numDays, Payment = o.numDays*r.Price};
+            contex.orderList.Add(o1);
         }
 
         // PUT api/<OrdersController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Order o)
         {
-            Order o1=orderList.Find(x=>x.OrderId==id);
-            o1.RoomId=o.RoomId;
-            o1.Start=o.Start;
-            o1.End=o.End;
+            Order o1 = contex.orderList.Find(x => x.OrderId == id);
+            o1.RoomId = o.RoomId;
+            o1.Start = o.Start;
+            o1.numDays = o.numDays;
 
         }
 
@@ -49,8 +56,9 @@ namespace HotelProject.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            Order o1 = orderList.Find(x => x.OrderId == id);
-            orderList.Remove(o1);
+            Order o1 = contex.orderList.Find(x => x.OrderId == id);
+            contex.orderList.Remove(o1);
         }
+        
     }
 }

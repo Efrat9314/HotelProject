@@ -9,53 +9,55 @@ namespace HotelProject.Controllers
     [ApiController]
     public class RoomsController : ControllerBase
     {
-        private static List<Room> roomList = new List<Room>();
-        private static int[] roomNumber = new int[8];
-        
-        public int RoomNum( int floor)
+        DataContex contex;
+        public RoomsController(DataContex contex)
         {
-            return floor * 100 + roomNumber[floor]++;
+            this.contex = contex;
+        }
+
+        private int RoomNum(int floor)
+        {
+            return floor * 100 + contex.roomNumber[floor]++;
         }
 
         // GET: api/<RoomsController>
         [HttpGet]
         public IEnumerable<Room> Get()
         {
-            return roomList;
+            return contex.roomList;
         }
 
         // GET api/<RoomsController>/5
         [HttpGet("{id}")]
         public Room Get(int id)
         {
-            return roomList.Find(x=> x.RoomId==id);
+            return contex.roomList.Find(x => x.RoomId == id);
         }
 
         // POST api/<RoomsController>
         [HttpPost]
         public void Post([FromBody] Room r)
         {
-            Room r1 = new Room { RoomId = RoomNum(r.Floor), Price = r.Price, NumOfBeds = r.NumOfBeds, Floor = r.Floor, IsEmpty = true };
-            roomList.Add(r1);
+            Room r1 = new Room { RoomId = RoomNum(r.Floor), Price = r.Price, NumOfBeds = r.NumOfBeds, Floor = r.Floor};
+            contex.roomList.Add(r1);
         }
 
         // PUT api/<RoomsController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Room r)
         {
-            Room r1 = roomList.Find(x => x.RoomId == id);
-            r1.NumOfBeds = r.NumOfBeds; 
+            Room r1 = contex.roomList.Find(x => x.RoomId == id);
+            r1.NumOfBeds = r.NumOfBeds;
             r1.Floor = r.Floor;
             r1.Price = r.Price;
-            r1.IsEmpty=true;
         }
 
         // DELETE api/<RoomsController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            Room r1 = roomList.Find(x => x.RoomId == id);
-            roomList.Remove(r1);
+            Room r1 = contex.roomList.Find(x => x.RoomId == id);
+            contex.roomList.Remove(r1);
         }
     }
 }

@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "waVwfHXQK+SzrshcofmFN61m7OKh3ZqlmTIgHZuzbuQ29tLkTE7NizUVHlSRtgWmR3FZbyCMgevF/0SouoInGw==",
+  "dgSpecHash": "etIDO09Iu+O/YmGwF8fSdX4rnqsdCtucPcfWVwFjoBecxiVkQSBbKZhKuXQgT11tVzv9eJqtiesAXQLiLO/sQQ==",
   "success": true,
-  "projectFilePath": "T:\\Group B\\C#\\Efrat Yanay\\Project\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj",
+  "projectFilePath": "T:\\Group B\\C#\\Efrat Yanay\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\student\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\student\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\student\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
-    "C:\\Users\\student\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
-    "C:\\Users\\student\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\student\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\student\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\student\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
   ],
   "logs": []

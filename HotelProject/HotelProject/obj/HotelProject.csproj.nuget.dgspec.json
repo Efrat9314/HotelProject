@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "T:\\Group B\\C#\\Efrat Yanay\\Project\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj": {}
+    "T:\\Group B\\C#\\Efrat Yanay\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj": {}
   },
   "projects": {
-    "T:\\Group B\\C#\\Efrat Yanay\\Project\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj": {
+    "T:\\Group B\\C#\\Efrat Yanay\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "T:\\Group B\\C#\\Efrat Yanay\\Project\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj",
+        "projectUniqueName": "T:\\Group B\\C#\\Efrat Yanay\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj",
         "projectName": "HotelProject",
-        "projectPath": "T:\\Group B\\C#\\Efrat Yanay\\Project\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj",
+        "projectPath": "T:\\Group B\\C#\\Efrat Yanay\\HotelProject\\HotelProject\\HotelProject\\HotelProject.csproj",
         "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-        "outputPath": "T:\\Group B\\C#\\Efrat Yanay\\Project\\HotelProject\\HotelProject\\HotelProject\\obj\\",
+        "outputPath": "T:\\Group B\\C#\\Efrat Yanay\\HotelProject\\HotelProject\\HotelProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -47,6 +47,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

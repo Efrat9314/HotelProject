@@ -6,7 +6,7 @@
         public int RoomId { get; set; }
         public string CustId { get; set; }
         public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        public int numDays { get; set; }
         public int Payment { get; set; }
     }
 }
