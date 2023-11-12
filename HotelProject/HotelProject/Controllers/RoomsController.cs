@@ -29,35 +29,47 @@ namespace HotelProject.Controllers
 
         // GET api/<RoomsController>/5
         [HttpGet("{id}")]
-        public Room Get(int id)
+        public ActionResult<Room> Get(int id)
         {
-            return contex.roomList.Find(x => x.RoomId == id);
+            Room r= contex.roomList.Find(x => x.RoomId == id);
+            if(r==null)
+                return NotFound();
+            return r;
         }
 
         // POST api/<RoomsController>
         [HttpPost]
-        public void Post([FromBody] Room r)
+        public ActionResult Post([FromBody] Room r)
         {
             Room r1 = new Room { RoomId = RoomNum(r.Floor), Price = r.Price, NumOfBeds = r.NumOfBeds, Floor = r.Floor};
+            if(r1==null)
+                return NotFound();
             contex.roomList.Add(r1);
+            return Ok();
         }
 
         // PUT api/<RoomsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Room r)
+        public ActionResult Put(int id, [FromBody] Room r)
         {
             Room r1 = contex.roomList.Find(x => x.RoomId == id);
+            if(r1==null)
+                return NotFound();
             r1.NumOfBeds = r.NumOfBeds;
             r1.Floor = r.Floor;
             r1.Price = r.Price;
+            return Ok();
         }
 
         // DELETE api/<RoomsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
             Room r1 = contex.roomList.Find(x => x.RoomId == id);
+            if(r1==null)
+                NotFound();
             contex.roomList.Remove(r1);
+            return Ok();    
         }
     }
 }

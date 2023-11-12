@@ -34,30 +34,38 @@ namespace HotelProject.Controllers
 
         // POST api/<OrdersController>
         [HttpPost]
-        public void Post([FromBody] Order o)
+        public ActionResult Post([FromBody] Order o)
         {
             Room r = contex.roomList.Find(x => x.RoomId == o.RoomId);
+            if (r == null)
+                return NotFound();
             Order o1 = new Order { OrderId = contex.orderNum++, CustId = o.CustId, RoomId = o.RoomId, Start = o.Start, numDays = o.numDays, Payment = o.numDays*r.Price};
             contex.orderList.Add(o1);
+            return Ok();
         }
 
         // PUT api/<OrdersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Order o)
+        public ActionResult Put(int id, [FromBody] Order o)
         {
             Order o1 = contex.orderList.Find(x => x.OrderId == id);
+            if(o1==null)
+                NotFound();
             o1.RoomId = o.RoomId;
             o1.Start = o.Start;
             o1.numDays = o.numDays;
-
+            return Ok();
         }
 
         // DELETE api/<OrdersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
             Order o1 = contex.orderList.Find(x => x.OrderId == id);
+            if(o1==null)
+                return NotFound();
             contex.orderList.Remove(o1);
+            return BadRequest();
         }
         
     }
