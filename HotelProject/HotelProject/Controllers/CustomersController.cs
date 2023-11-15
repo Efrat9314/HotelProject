@@ -29,6 +29,7 @@ namespace HotelProject.Controllers
             Customer c= contex.customerList.Find(x => x.CustId == id);
             if(c==null)
                 return NotFound();
+            return Ok(c);
         }
 
         // POST api/<CustomersController>
