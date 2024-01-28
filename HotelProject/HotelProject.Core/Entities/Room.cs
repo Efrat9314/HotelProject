@@ -1,6 +1,6 @@
 ﻿namespace HotelProject.Core.Entities
 {
-    public class Room
+    public class Room:BaseModel
     {
         public int RoomId { get; set; }
         public int Price { get; set; }

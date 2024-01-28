@@ -1,6 +1,6 @@
-﻿namespace HotelProject.Core.Entities
+﻿namespace HotelProject.API.Models
 {
-    public class Customer:BaseModel
+    public class CustomerPostModel
     {
         public string CustomerId { get; set; }
         public string Name { get; set; }
@@ -8,7 +8,6 @@
         public string Email { get; set; }
         public string Adress { get; set; }
 
-        public List<Order> OrdersList { get; set; }
 
     }
 }

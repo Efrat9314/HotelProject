@@ -34,7 +34,7 @@ namespace HotelProject.Data.Repositories
         {
             //TODO מס' חדר-שדה חובה
             Room r = _context.roomList.Find(o.RoomIdList.First());
-            Order o1 = new Order { OrderId = _context.orderNum++, CustId = o.CustId, RoomIdList = o.RoomIdList, Start = o.Start, numDays = o.numDays, Payment = o.numDays * r.Price };
+            Order o1 = new Order { OrderId = _context.orderNum++, CustId = o.CustId, RoomIdList = o.RoomIdList, Start = o.Start, NumDays = o.NumDays, Payment = o.NumDays * r.Price };
             _context.orderList.Add(o1);
             _context.SaveChanges();
 
@@ -45,7 +45,7 @@ namespace HotelProject.Data.Repositories
             Order o1 = _context.orderList.Find(id);
             o1.RoomIdList = o.RoomIdList;
             o1.Start = o.Start;
-            o1.numDays = o.numDays;
+            o1.NumDays = o.NumDays;
             _context.SaveChanges();
 
         }
