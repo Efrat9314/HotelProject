@@ -2,6 +2,9 @@
 using HotelProject.API;
 using HotelProject.Core.Repositories;
 using HotelProject.Core.Entities;
+using HotelProject.API.Models;
+using AutoMapper;
+using HotelProject.Core.DTOs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,10 +15,12 @@ namespace HotelProject.API.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly ICusromerService _customerService;
+        private readonly IMapper _mapper;
         
-        public CustomersController( ICusromerService cusromerService)
+        public CustomersController( ICusromerService cusromerService,IMapper mapper)
         {
             _customerService = cusromerService;
+            _mapper = mapper;
         }
         // GET: api/<CustomersController>
         [HttpGet]
@@ -33,10 +38,11 @@ namespace HotelProject.API.Controllers
 
         // POST api/<CustomersController>
         [HttpPost]
-        public ActionResult Post([FromBody] Customer c)
+        public ActionResult Post([FromBody] CustomerPostModel c)
         {
-            _customerService.Post(c);
-            return Ok();
+            Customer customer = new Customer { CustomerId=c.CustomerId,Name=c.Name,Phone=c.Phone,Adress =c.Adress,Email=c.Email};
+            _customerService.Post(customer);
+           return Ok(_mapper.Map<CustomerDto>(customer));
 
         }
 

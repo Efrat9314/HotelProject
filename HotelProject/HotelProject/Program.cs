@@ -1,11 +1,8 @@
 using HotelProject.Core;
 using HotelProject.Data;
-using HotelProject.API;
 using HotelProject.Service;
 using HotelProject.Core.Repositories;
 using HotelProject.Data.Repositories;
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,6 +18,7 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddDbContext<DataContext>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

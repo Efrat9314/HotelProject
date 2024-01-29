@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using HotelProject.Core.Entities;
 using HotelProject.Core.Repositories;
+using HotelProject.API.Models;
+using AutoMapper;
+using HotelProject.Core.DTOs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,9 +14,12 @@ namespace HotelProject.API.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrderService _orderService;
-        public OrdersController(IOrderService orderService)
+        private readonly IMapper _mapper;
+
+        public OrdersController(IOrderService orderService,IMapper mapper)
         {
             _orderService = orderService;
+            _mapper = mapper;
         }
 
         // GET: api/<OrdersController>
@@ -32,17 +38,19 @@ namespace HotelProject.API.Controllers
 
         // POST api/<OrdersController>
         [HttpPost]
-        public ActionResult Post([FromBody] Order o)
+        public ActionResult Post([FromBody] OrderPostModel o)
         {
-            _orderService.Post(o);
-            return Ok();
+            Order order = new Order { CustomerId = o.CustId, RoomIdList = o.RoomIdList, NumDaysList = o.NumDaysList };
+            _orderService.Post(order);
+            return Ok(_mapper.Map<OrderDto>(order));
         }
 
         // PUT api/<OrdersController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Order o)
+        public ActionResult Put(int id, [FromBody] OrderPostModel o)
         {
-            _orderService.Put(id, o);
+            Order order = new Order { CustomerId = o.CustId, RoomIdList = o.RoomIdList, NumDaysList = o.NumDaysList };
+            _orderService.Put(id,order);
             return Ok();
         }
 
