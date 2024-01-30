@@ -32,7 +32,7 @@ namespace HotelProject.Data.Repositories
 
         public void Post(Order o)
         {
-             Order o1 = new Order { OrderId = _context.orderNum++, CustId = o.CustId, RoomIdList = o.RoomIdList, Start = DateTime.Now, NumDaysList = o.NumDaysList, Payment = TotalPrice(o) };
+             Order o1 = new Order { CustId = o.CustId, RoomIdList = o.RoomIdList, Start = DateTime.Now, NumDaysList = o.NumDaysList, Payment = TotalPrice(o) };
             _context.orderList.Add(o1);
             _context.SaveChanges();
 

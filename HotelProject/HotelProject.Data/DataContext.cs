@@ -15,14 +15,5 @@ namespace HotelProject.Data
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=EfratYanayHotel");
         }
-
-        //public DataContex()
-        //{
-        //    customerList = new List<Customer>();
-        //    roomList = new List<Room>();
-        //    orderList = new List<Order>();
-        //    roomNumber = new int[8];
-        //    orderNum = 1;
-        //}
     }
 }

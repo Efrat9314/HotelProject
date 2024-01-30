@@ -9,11 +9,9 @@ namespace HotelProject.Core.DTOs
 {
     public class RoomDto
     {
-        public int RoomId { get; set; }
+        public int Id { get; set; }
         public int Price { get; set; }
         public int NumOfBeds { get; set; }
         public int Floor { get; set; }
-
-        public List<Order> OrdersList { get; set; }
     }
 }

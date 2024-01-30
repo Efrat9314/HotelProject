@@ -2,7 +2,7 @@
 {
     public class Room:BaseModel
     {
-        public int RoomId { get; set; }
+        public int Id { get; set; }
         public int Price { get; set; }
         public int NumOfBeds { get; set; }
         public int Floor { get; set; }

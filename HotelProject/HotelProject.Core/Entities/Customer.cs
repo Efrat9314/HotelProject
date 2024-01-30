@@ -2,6 +2,7 @@
 {
     public class Customer:BaseModel
     {
+        public string Id { get; set; }
         public string CustomerId { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }

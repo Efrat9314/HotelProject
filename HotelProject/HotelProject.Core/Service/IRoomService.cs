@@ -14,6 +14,6 @@ namespace HotelProject.Core.Repositories
         void Post(Room r);
         void Put(int id, Room r);
         void Delete(int id);
-        int RoomNum(int floor);
+        //int RoomNum(int floor);
     }
 }

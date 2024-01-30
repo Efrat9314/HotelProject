@@ -63,9 +63,9 @@ namespace HotelProject.API.Controllers
             _roomService.Delete(id);
             return Ok();    
         }
-        private int RoomNum(int floor)
-        {
-            return _roomService.RoomNum(floor);
-        }
+        //private int RoomNum(int floor)
+        //{
+        //    return _roomService.RoomNum(floor);
+        //}
     }
 }

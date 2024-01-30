@@ -31,7 +31,7 @@ namespace HotelProject.Data.Repositories
 
         public void Post(Room r)
         {
-            Room r1 = new Room { RoomId = RoomNum(r.Floor), Price = r.Price, NumOfBeds = r.NumOfBeds, Floor = r.Floor };
+            Room r1 = new Room { Price = r.Price, NumOfBeds = r.NumOfBeds, Floor = r.Floor };
             _context.roomList.Add(r1);
             _context.SaveChanges();
         }
@@ -51,9 +51,9 @@ namespace HotelProject.Data.Repositories
             _context.SaveChanges();
         }
 
-        public int RoomNum(int floor)
-        {
-            return floor * 100 + _context.roomNumber[floor]++;
-        }
+        //public int RoomNum(int floor)
+        //{
+        //    return floor * 100 + _context.roomNumber[floor]++;
+        //}
     }
 }

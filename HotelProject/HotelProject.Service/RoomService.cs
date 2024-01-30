@@ -42,9 +42,9 @@ namespace HotelProject.Service
             _roomRepository.Put(id, r);  
         }
 
-        public int RoomNum(int floor)
-        {
-            return _roomRepository.RoomNum(floor);
-        }
+        //public int RoomNum(int floor)
+        //{
+        //    return _roomRepository.RoomNum(floor);
+        //}
     }
 }
